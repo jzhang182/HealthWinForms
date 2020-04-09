@@ -23,6 +23,7 @@ namespace HealthInfo
         {
             SubForm editForm = new SubForm(this, null, "add");
             editForm.Show();
+            RefreshButton_Click(sender, e);
         }
         public void MainGetValue(Employee employee, string option)
         {
@@ -42,6 +43,7 @@ namespace HealthInfo
                 MessageBox.Show("Target employee found" + "\n" + employee.ToString());
                 SubForm editForm = new SubForm(this, employee, "Modify");
                 editForm.Show();
+                RefreshButton_Click(sender, e);
             }
             catch 
             { 
@@ -84,6 +86,7 @@ namespace HealthInfo
             }
             writer.Flush();
             writer.Close();
+            RefreshButton_Click(sender, e);
             MessageBox.Show("Data saved to csv file");
         }
         private void RefreshButton_Click(object sender, EventArgs e)
@@ -97,6 +100,11 @@ namespace HealthInfo
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
