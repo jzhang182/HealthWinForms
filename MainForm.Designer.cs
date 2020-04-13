@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SearchButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Gin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,14 +49,20 @@
             this.addNewProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.Load = new System.Windows.Forms.ToolStripButton();
+            this.Save = new System.Windows.Forms.ToolStripButton();
+            this.Add = new System.Windows.Forms.ToolStripButton();
+            this.Delete = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(93, 324);
+            this.SearchButton.Location = new System.Drawing.Point(90, 345);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(75, 21);
             this.SearchButton.TabIndex = 11;
@@ -112,7 +119,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 324);
+            this.textBox1.Location = new System.Drawing.Point(12, 345);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(72, 21);
             this.textBox1.TabIndex = 17;
@@ -125,7 +132,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 28);
+            this.groupBox1.Location = new System.Drawing.Point(9, 49);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(642, 293);
             this.groupBox1.TabIndex = 19;
@@ -155,14 +162,14 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -195,11 +202,65 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Load,
+            this.Save,
+            this.Add,
+            this.Delete});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(666, 25);
+            this.toolStrip1.TabIndex = 21;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // Load
+            // 
+            this.Load.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Load.Image = ((System.Drawing.Image)(resources.GetObject("Load.Image")));
+            this.Load.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Load.Name = "Load";
+            this.Load.Size = new System.Drawing.Size(23, 22);
+            this.Load.Text = "Load File";
+            this.Load.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // Save
+            // 
+            this.Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Save.Image = ((System.Drawing.Image)(resources.GetObject("Save.Image")));
+            this.Save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(23, 22);
+            this.Save.Text = "Save File";
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // Add
+            // 
+            this.Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Add.Image = ((System.Drawing.Image)(resources.GetObject("Add.Image")));
+            this.Add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(23, 22);
+            this.Add.Text = "Add New Profile";
+            this.Add.Click += new System.EventHandler(this.Add_Click);
+            // 
+            // Delete
+            // 
+            this.Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(23, 22);
+            this.Delete.Text = "Delete Selected";
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 357);
+            this.ClientSize = new System.Drawing.Size(666, 373);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
@@ -207,10 +268,13 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "HealthInfo";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,6 +300,11 @@
         private System.Windows.Forms.ToolStripMenuItem addNewProfileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton Load;
+        private System.Windows.Forms.ToolStripButton Save;
+        private System.Windows.Forms.ToolStripButton Add;
+        private System.Windows.Forms.ToolStripButton Delete;
     }
 }
 

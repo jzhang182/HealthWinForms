@@ -116,5 +116,29 @@ namespace HealthInfo
             AddButton_Click(sender, e);
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            LoadButton_Click(sender, e);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            SaveButton_Click(sender, e);
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            AddButton_Click(sender, e);
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
