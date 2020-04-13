@@ -47,7 +47,7 @@ namespace HealthInfo
             }
             catch 
             { 
-                MessageBox.Show("No corresponding record."); 
+                MessageBox.Show("No corresponding record"); 
             }
         }
 
@@ -68,7 +68,10 @@ namespace HealthInfo
                     Employee newEmployee = new Employee(values[0], values[1], Convert.ToDouble(values[2]), Convert.ToBoolean(values[3]), Convert.ToBoolean(values[4]));
                     data.AddNew(newEmployee);
                 }
-                catch { }
+                catch 
+                {
+                    MessageBox.Show("Invalid data structure");
+                }
             }
             reader.Close();
             RefreshButton_Click(sender, e);
@@ -97,14 +100,21 @@ namespace HealthInfo
                 dataGridView1.Rows.Add(currentEmployee.Gin, currentEmployee.Name, currentEmployee.BodyTemperature.ToString(), currentEmployee.HubeiTravelStatus.ToString(),currentEmployee.UnderTheWeather.ToString(), currentEmployee.Alert().ToString());
             }
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            LoadButton_Click(sender, e);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            SaveButton_Click(sender, e);
         }
+
+        private void addNewProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddButton_Click(sender, e);
+        }
+
     }
 }
