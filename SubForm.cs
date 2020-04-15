@@ -15,7 +15,7 @@ namespace HealthInfo
         public MainForm subMainForm;
         public SubForm(MainForm mainForm, Employee employee, string option)
         {
-            this.subMainForm = mainForm;
+            subMainForm = mainForm;
             InitializeComponent();
             switch ( option )
             {
@@ -46,9 +46,16 @@ namespace HealthInfo
 
         private void SaveChanges_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee(textBox1.Text, textBox2.Text, double.Parse(textBox3.Text), BeenHubei.Checked, NotFeelingWell.Checked);
-            subMainForm.MainGetValue(employee,"Edit");
-            MessageBox.Show("Successfully Saved");
+            try
+            {
+                Employee employee = new Employee(textBox1.Text, textBox2.Text, double.Parse(textBox3.Text), BeenHubei.Checked, NotFeelingWell.Checked);
+                subMainForm.MainGetValue(employee, "Edit");
+                MessageBox.Show("Successfully Saved");
+            }
+            catch
+            {
+                MessageBox.Show("Wrong input format, please retry");
+            }
             Close();
         }
 

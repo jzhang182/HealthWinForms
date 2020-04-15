@@ -298,7 +298,6 @@
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(34, 28);
             this.Delete.Text = "Delete Selected";
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // statusStrip1
             // 

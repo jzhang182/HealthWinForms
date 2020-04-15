@@ -138,11 +138,6 @@ namespace HealthInfo
             AddButton_Click(sender, e);
         }
 
-        private void Delete_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void showToolbarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStrip1.Visible = (toolStrip1.Visible) ? false : true;
