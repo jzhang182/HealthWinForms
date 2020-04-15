@@ -48,7 +48,7 @@ namespace HealthInfo
         {
             Employee employee = new Employee(textBox1.Text, textBox2.Text, double.Parse(textBox3.Text), BeenHubei.Checked, NotFeelingWell.Checked);
             subMainForm.MainGetValue(employee,"Edit");
-            MessageBox.Show("Success");
+            MessageBox.Show("Successfully Saved");
             Close();
         }
 

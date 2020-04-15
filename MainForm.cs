@@ -22,8 +22,10 @@ namespace HealthInfo
         private void AddButton_Click(object sender, EventArgs e)
         {
             SubForm editForm = new SubForm(this, null, "add");
+            toolStripStatusLabel1.Text = "Adding New Profile";
             editForm.Show();
             RefreshButton_Click(sender, e);
+            toolStripStatusLabel1.Text = "Ready";
         }
         public void MainGetValue(Employee employee, string option)
         {
@@ -36,6 +38,7 @@ namespace HealthInfo
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            toolStripStatusLabel1.Text = "Searching";
             int currentGin = int.Parse(textBox1.Text);
             try 
             {
@@ -44,6 +47,7 @@ namespace HealthInfo
                 SubForm editForm = new SubForm(this, employee, "Modify");
                 editForm.Show();
                 RefreshButton_Click(sender, e);
+                toolStripStatusLabel1.Text = default;
             }
             catch 
             { 
@@ -53,6 +57,7 @@ namespace HealthInfo
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
+            toolStripStatusLabel1.Text = "Loading";
             string path = "EmployeeData.csv";
             if ( !File.Exists(path) )
             {
@@ -70,16 +75,17 @@ namespace HealthInfo
                 }
                 catch 
                 {
-                    MessageBox.Show("Invalid data structure");
+                    MessageBox.Show("Data loaded");
                 }
             }
             reader.Close();
             RefreshButton_Click(sender, e);
-            MessageBox.Show("Data loaded");
+            toolStripStatusLabel1.Text = "Ready";
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            toolStripStatusLabel1.Text = "Saving";
             string path = "EmployeeData.csv";
             StreamWriter writer = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write));
             writer.WriteLine("Gin" + "," + "Name" + "," + "Body Temperature" + "," + "Traveled to Hubei" + "," + "Having Symptoms");
@@ -91,6 +97,7 @@ namespace HealthInfo
             writer.Close();
             RefreshButton_Click(sender, e);
             MessageBox.Show("Data saved to csv file");
+            toolStripStatusLabel1.Text = "Ready";
         }
         private void RefreshButton_Click(object sender, EventArgs e)
         {
@@ -121,11 +128,6 @@ namespace HealthInfo
             LoadButton_Click(sender, e);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Save_Click(object sender, EventArgs e)
         {
             SaveButton_Click(sender, e);
@@ -138,7 +140,19 @@ namespace HealthInfo
 
         private void Delete_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void showToolbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStrip1.Visible = (toolStrip1.Visible) ? false : true;
+            showToolbarToolStripMenuItem.Checked = (toolStrip1.Visible) ? true : false;
+        }
+
+        private void showStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            statusStrip1.Visible = (statusStrip1.Visible) ? false : true;
+            showStatusToolStripMenuItem.Checked = (statusStrip1.Visible) ? true : false;
         }
     }
 }
