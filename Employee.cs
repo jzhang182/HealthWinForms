@@ -33,13 +33,19 @@ namespace HealthInfo
             get;
             set;
         }
-        public Employee(string gin, string name, double bodyTemperature, bool hubeiTravelStatus, bool underTheWeather)
+        public DateTime RecordDate
+        {
+            get;
+            set;
+        }
+        public Employee(string gin, string name, double bodyTemperature, bool hubeiTravelStatus, bool underTheWeather, DateTime recordDate)
         {
             Gin = gin;
             Name = name;
             BodyTemperature = bodyTemperature;
             HubeiTravelStatus = hubeiTravelStatus;
             UnderTheWeather = underTheWeather;
+            RecordDate = recordDate;
         }
         public bool Alert()
         {
@@ -54,7 +60,7 @@ namespace HealthInfo
         }
         public override string ToString()
         {
-            return Gin + "," + Name + "," + BodyTemperature.ToString() + "," + HubeiTravelStatus.ToString() + "," + UnderTheWeather.ToString();
+            return "Gin:" + Gin + "," + "Name:" + Name;
         }
     }
 }

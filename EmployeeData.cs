@@ -9,23 +9,15 @@ namespace HealthInfo
 {
     public class EmployeeData
     {
-        private SortedDictionary<int, Employee> dataDict = new SortedDictionary<int, Employee>();
-        public SortedDictionary<int, Employee> DataDict
-        {
-            get
-            {
-                return dataDict;
-            }
-            set
-            {
-                dataDict = value;
-            }
-        }
+        public SortedDictionary<int, Employee> DataDict { get; set; } = new SortedDictionary<int, Employee>();
         public void AddNew(Employee employee)
         {
-            try { dataDict.Remove(int.Parse(employee.Gin)); }
-            catch { }
-            finally { dataDict.Add(int.Parse(employee.Gin), employee); }
+            DataDict.Add(int.Parse(employee.Gin), employee); 
+        }
+        public void Edit(Employee employee)
+        {
+            DataDict.Remove(int.Parse(employee.Gin));
+            DataDict.Add(int.Parse(employee.Gin), employee);
         }
     }
 }

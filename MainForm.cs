@@ -39,7 +39,8 @@ namespace HealthInfo
         private void SearchButton_Click(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = "Searching";
-            int currentGin = int.Parse(textBox1.Text);
+            bool isGinLegal = int.TryParse(textBox1.Text, out int currentGin);
+            if(!isGinLegal) MessageBox.Show("Invalid Gin");
             try 
             {
                 Employee employee = data.DataDict[currentGin];
@@ -53,6 +54,7 @@ namespace HealthInfo
             { 
                 MessageBox.Show("No corresponding record"); 
             }
+            toolStripStatusLabel1.Text = "Ready";
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
@@ -148,6 +150,24 @@ namespace HealthInfo
         {
             statusStrip1.Visible = (statusStrip1.Visible) ? false : true;
             showStatusToolStripMenuItem.Checked = (statusStrip1.Visible) ? true : false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var currentEmployee in data.DataDict.Values)
+            {
+                dataGridView1.Rows.Add(currentEmployee.Gin, currentEmployee.Name, currentEmployee.BodyTemperature.ToString(), currentEmployee.HubeiTravelStatus.ToString(), currentEmployee.UnderTheWeather.ToString(), currentEmployee.Alert().ToString());
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var currentEmployee in data.DataDict.Values)
+            {
+                dataGridView1.Rows.Add(currentEmployee.Gin, currentEmployee.Name, currentEmployee.BodyTemperature.ToString(), currentEmployee.HubeiTravelStatus.ToString(), currentEmployee.UnderTheWeather.ToString(), currentEmployee.Alert().ToString());
+            }
         }
     }
 }
