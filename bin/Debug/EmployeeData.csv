@@ -1,6 +1,14 @@
-Gin,Name,Body Temperature,Traveled to Hubei,Having Symptoms
-123,Trump ,37.3,False,True
-124,Merkel,36.5,True,False
-135,Johnson,37.5,False,False
-167,Xi,36.3,False,False
-789,Kim,37.7,False,False
+100,Harry,36.2,True,False,2020/4/16
+100,Harry,36.4,False,True,2020/4/17
+100,Harry,36.6,False,True,2020/4/18
+102,Ron,36.8,False,False,2020/4/16
+102,Ron,37,False,True,2020/4/17
+102,Ron,37.2,True,True,2020/4/18
+104,Hermoine,37.4,True,False,2020/4/16
+104,Hermoine,37.6,False,False,2020/4/17
+104,Hermoine,36.4,False,False,2020/4/18
+106,Malfoy,36.6,False,False,2020/4/16
+106,Malfoy,36.8,False,True,2020/4/17
+106,Malfoy,37,True,True,2020/4/18
+110,Harry,36.5,False,False,2020/4/17
+110,Harry,37.3,True,False,2020/4/20

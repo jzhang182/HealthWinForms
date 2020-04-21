@@ -18,46 +18,18 @@ namespace HealthInfo
             get;
             set;
         }
-        public double BodyTemperature
+        public Dictionary<DateTime, DailyInformation> StatusRecordDict
         {
             get;
             set;
         }
-        public bool HubeiTravelStatus
-        {
-            get;
-            set;
-        }
-        public bool UnderTheWeather
-        {
-            get;
-            set;
-        }
-        public DateTime RecordDate
-        {
-            get;
-            set;
-        }
-        public Employee(string gin, string name, double bodyTemperature, bool hubeiTravelStatus, bool underTheWeather, DateTime recordDate)
+        public Employee(string gin, string name, Dictionary<DateTime, DailyInformation> statusRecordDict)
         {
             Gin = gin;
             Name = name;
-            BodyTemperature = bodyTemperature;
-            HubeiTravelStatus = hubeiTravelStatus;
-            UnderTheWeather = underTheWeather;
-            RecordDate = recordDate;
+            StatusRecordDict = statusRecordDict;
         }
-        public bool Alert()
-        {
-            if ( BodyTemperature >= 37.3 || HubeiTravelStatus || UnderTheWeather )
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+
         public override string ToString()
         {
             return "Gin:" + Gin + "," + "Name:" + Name;
